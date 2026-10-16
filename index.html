@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#234d3c">
+<meta name="description" content="A gentle Christian routine companion for Bible reading, prayer, personal study, and student life.">
+<link rel="manifest" href="manifest.json">
+<title>My Walk With Jehovah</title>
+<style>
+:root{--green:#234d3c;--green2:#39745b;--cream:#f6f4ed;--card:#fff;--ink:#1e2b25;--muted:#64736b;--gold:#e9bd65;--line:#e4e8e1;--soft:#eaf2ec}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(135deg,#234d3c,#39745b);color:#fff;padding:24px 18px 26px;border-radius:0 0 24px 24px}
+.wrap{max-width:760px;margin:auto;padding:0 14px}header .top{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:#ffffff20;display:grid;place-items:center;font-size:25px}
+h1{font-size:24px;line-height:1.15;margin:0}header p{margin:8px 0 0;color:#e5efe8;font-size:14px}
+main{padding:16px 0 36px}.date{font-size:13px;color:var(--muted);margin:2px 4px 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;margin:12px 0;box-shadow:0 4px 16px #203b2c08}
+.card h2{font-size:18px;margin:0 0 8px}.eyebrow{font-size:11px;letter-spacing:.1em;font-weight:800;color:var(--green2);text-transform:uppercase}
+.verse{font-size:20px;font-weight:750;line-height:1.35;margin:7px 0}.muted{color:var(--muted);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:11px 14px;background:var(--green);color:#fff;text-decoration:none;font-weight:700;font-size:14px;cursor:pointer;min-height:42px}
+.btn.secondary{background:var(--soft);color:var(--green)}.btn.gold{background:var(--gold);color:#392a0c}.btn.small{padding:8px 10px;min-height:36px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}.tile .emoji{font-size:23px}.tile strong{display:block;margin:5px 0 2px}.tile p{font-size:13px;color:var(--muted);margin:0 0 10px}
+label{display:block;font-size:13px;font-weight:700;margin:10px 0 5px}input[type=time],input[type=text],textarea,select{width:100%;padding:11px;border:1px solid #d5ded6;border-radius:10px;background:#fff;font:inherit;color:var(--ink)}textarea{min-height:75px;resize:vertical}
+.checklist{display:grid;gap:9px}.check{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #edf0eb}.check:last-child{border-bottom:0}.check input{margin-top:5px;width:18px;height:18px;accent-color:var(--green)}.check span{flex:1}.check small{display:block;color:var(--muted);font-size:12px}
+.progressbar{height:9px;background:#e8eee8;border-radius:9px;overflow:hidden;margin:8px 0}.progressbar div{height:100%;background:var(--green2);width:0;transition:width .2s}
+nav{display:flex;gap:7px;overflow:auto;padding:12px 0 3px;position:sticky;top:0;background:var(--cream);z-index:5}
+nav button{border:1px solid var(--line);background:#fff;color:var(--green);border-radius:20px;padding:9px 12px;white-space:nowrap;font-weight:700}
+nav button.active{background:var(--green);color:#fff}.section{display:none}.section.active{display:block}
+.reminder{display:grid;grid-template-columns:1fr 112px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.reminder:last-child{border:0}
+.tip{background:#fff8e7;border:1px solid #f0dfb8;border-radius:14px;padding:13px;font-size:14px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:15px 0 28px}
+@media(min-width:600px){header{padding-top:32px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.card{padding:20px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="top"><div class="logo">📖</div><div><h1>My Walk With Jehovah</h1><div style="font-size:13px;color:#e5efe8">A little progress each day ❤️</div></div></div>
+  <p>Keep close to Jehovah while you learn, grow, and handle student life.</p>
+</div></header>
+<div class="wrap">
+<nav aria-label="Main sections">
+<button class="active" data-tab="today">Today</button><button data-tab="routine">My Routine</button><button data-tab="study">Bible & Study</button><button data-tab="student">Student Life</button><button data-tab="progress">Progress</button>
+</nav>
+<main>
+<section id="today" class="section active">
+<div class="date" id="todayDate"></div>
+<div class="card">
+<div class="eyebrow">Today's encouragement</div><h2 id="encTitle">Keep Jehovah close</h2>
+<div class="verse" id="verseText">“Keep on, then, seeking first the Kingdom.”</div>
+<strong id="verseRef">Matthew 6:33</strong>
+<p id="encBody">Your education matters. Work hard, but make room for prayer, Bible reading, and congregation activities. Jehovah can help you make wise choices.</p>
+<div class="actions"><a class="btn" href="https://www.jw.org/en/library/bible/study-bible/books/matthew/6/" target="_blank" rel="noopener">Read Bible chapter</a><a class="btn secondary" href="https://www.jw.org/en/library/" target="_blank" rel="noopener">Open JW Library resources</a></div>
+</div>
+<div class="grid">
+<div class="tile"><div class="emoji">🌅</div><strong>Morning</strong><p>Pray and read the Daily Text.</p><button class="btn small secondary" onclick="jump('routine')">Set routine</button></div>
+<div class="tile"><div class="emoji">☀️</div><strong>Midday</strong><p>Pause and remember your goals.</p><button class="btn small secondary" onclick="jump('student')">Get a tip</button></div>
+<div class="tile"><div class="emoji">🌙</div><strong>Evening</strong><p>Study and reflect on your day.</p><button class="btn small secondary" onclick="jump('study')">Study plan</button></div>
+<div class="tile"><div class="emoji">🌱</div><strong>Small steps</strong><p id="todayProgress">0 of 5 habits completed today.</p><button class="btn small secondary" onclick="jump('progress')">View progress</button></div>
+</div>
+<div class="card"><h2>Today's simple goal</h2><p id="dailyGoal">Before leaving for lectures, take a few quiet minutes to pray and read a Bible passage.</p><button class="btn gold" onclick="completeGoal()">I did it today ✓</button><p class="muted" id="goalStatus" aria-live="polite"></p></div>
+<div class="card"><h2>Daily Text</h2><p class="muted">Open the official Daily Text page for the current day's text. This app does not copy or claim to update the official text itself.</p><a class="btn" href="https://www.jw.org/en/library/books/examining-the-scriptures-daily/" target="_blank" rel="noopener">Open Daily Text on jw.org ↗</a></div>
+</section>
+
+<section id="routine" class="section">
+<div class="card"><div class="eyebrow">Build a steady habit</div><h2>Your daily reminders</h2><p class="muted">Choose times that fit your lecture timetable. Notifications work best when this app is installed and allowed to send notifications. Browser reminders may not fire if the app/browser is closed.</p>
+<div class="reminder"><div><strong>🌅 Morning prayer & Daily Text</strong><div class="muted">Start the day with Jehovah.</div></div><input id="morningTime" type="time" value="05:30" aria-label="Morning reminder time"></div>
+<div class="reminder"><div><strong>☀️ Midday encouragement</strong><div class="muted">Pause, pray briefly, and reset.</div></div><input id="middayTime" type="time" value="12:30" aria-label="Midday reminder time"></div>
+<div class="reminder"><div><strong>🌙 Evening Bible study</strong><div class="muted">Read, reflect, and prepare for tomorrow.</div></div><input id="eveningTime" type="time" value="20:00" aria-label="Evening reminder time"></div>
+<div class="actions"><button class="btn" onclick="saveReminderSettings()">Save reminder times</button><button class="btn secondary" onclick="enableNotifications()">Allow notifications</button></div>
+<p class="muted" id="notificationStatus" aria-live="polite">Reminder times are saved on this device.</p>
+</div>
+<div class="card"><h2>A balanced routine</h2><div class="checklist">
+<label class="check"><input type="checkbox" data-habit="morning"><span>Morning prayer<small>Tell Jehovah about your day and ask for wisdom.</small></span></label>
+<label class="check"><input type="checkbox" data-habit="text"><span>Daily Text<small>Read the current text and think about one application.</small></span></label>
+<label class="check"><input type="checkbox" data-habit="bible"><span>Bible reading<small>Read a manageable portion and note one lesson.</small></span></label>
+<label class="check"><input type="checkbox" data-habit="study"><span>Personal study<small>Study without rushing; write down a useful point.</small></span></label>
+<label class="check"><input type="checkbox" data-habit="evening"><span>Evening reflection and prayer<small>Thank Jehovah, reflect, and plan tomorrow.</small></span></label>
+</div></div>
+</section>
+
+<section id="study" class="section">
+<div class="card"><h2>📖 Bible reading</h2><p>Keep your plan realistic during lectures and exam periods. Read thoughtfully rather than rushing just to finish.</p>
+<label for="reading">Today's Bible reading or passage</label><input id="reading" type="text" placeholder="Example: Psalm 23">
+<label for="lesson">One lesson I learned</label><textarea id="lesson" placeholder="What does this teach me about Jehovah?"></textarea>
+<button class="btn" onclick="saveStudy()">Save study note</button><p class="muted" id="studyStatus"></p>
+<div class="actions"><a class="btn secondary" href="https://www.jw.org/en/library/bible/" target="_blank" rel="noopener">Read the Bible on jw.org ↗</a><a class="btn secondary" href="https://www.jw.org/en/library/" target="_blank" rel="noopener">Find study material ↗</a></div></div>
+<div class="card"><h2>Personal study: 15-minute idea</h2><ol><li>Pray for help to understand and apply what you read.</li><li>Read a short Bible passage.</li><li>Ask: What does this teach me about Jehovah?</li><li>Ask: How can I apply this at school or at home?</li><li>Write one sentence and choose one action.</li></ol></div>
+<div class="card"><h2>My study notes</h2><div id="notesList" class="muted">Your saved notes will appear here on this device.</div></div>
+</section>
+
+<section id="student" class="section">
+<div class="card"><div class="eyebrow">Wisdom for campus life</div><h2 id="studentTitle">Choose friends who help you grow</h2><p id="studentAdvice">Be friendly to everyone, but choose close friends who respect your faith and help you make good decisions. You do not need to follow the crowd to belong.</p><strong id="studentScripture">Proverbs 13:20</strong><div class="actions"><button class="btn" onclick="nextTip()">Another student-life tip</button></div></div>
+<div class="card"><h2>When pressure comes</h2><div class="checklist">
+<div class="check"><span><strong>Pause before saying yes.</strong><small>You can take time to think rather than decide under pressure.</small></span></div>
+<div class="check"><span><strong>Prepare a kind answer.</strong><small>Know how you will explain your beliefs respectfully.</small></span></div>
+<div class="check"><span><strong>Choose your company wisely.</strong><small>Look for friends who respect your standards.</small></span></div>
+<div class="check"><span><strong>Ask for help early.</strong><small>Speak to a trusted mature Christian if a problem feels too heavy.</small></span></div>
+</div></div>
+<div class="card"><h2>Quick prayer prompt</h2><p>“Jehovah, please help me use my time wisely today, make good choices, and treat people with kindness. Help me keep my friendship with you strong.”</p><p class="muted">You can put this prayer into your own words.</p></div>
+</section>
+
+<section id="progress" class="section">
+<div class="card"><div class="eyebrow">Progress, not perfection</div><h2>Your spiritual habits</h2><p class="muted">Tick habits as you complete them. Your checklist resets for a new day; your saved study notes remain on this device.</p><div class="progressbar"><div id="progressFill"></div></div><strong id="progressLabel">0% completed today</strong><p id="streakText" class="muted"></p><button class="btn secondary" onclick="resetToday()">Reset today's checklist</button></div>
+<div class="card"><h2>Weekly reflection</h2><label for="weekWin">What helped me feel close to Jehovah this week?</label><textarea id="weekWin" placeholder="Write a few words..."></textarea><label for="weekNext">What is one thing I want to improve next week?</label><textarea id="weekNext" placeholder="Choose one realistic goal..."></textarea><button class="btn" onclick="saveWeekly()">Save reflection</button><p id="weeklyStatus" class="muted"></p></div>
+<div class="card"><h2>Remember</h2><p>Missing a day does not mean you have failed. Start again with one small step. Jehovah values sincere effort and a heart that keeps turning to him.</p></div>
+</section>
+<footer>Made with love for a student who wants to keep Jehovah close. Your notes stay on this device unless you clear browser data.</footer>
+</main>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const todayKey=()=>new Date().toLocaleDateString('en-CA');
+const storageKey='mwyj-v1';
+let data={};
+try{data=JSON.parse(localStorage.getItem(storageKey)||'{}')}catch(e){data={}}
+function persist(){localStorage.setItem(storageKey,JSON.stringify(data))}
+const encouragements=[
+{title:'Keep Jehovah first',verse:'“Keep on, then, seeking first the Kingdom.”',ref:'Matthew 6:33',body:'Your education matters. Work hard, but make room for prayer, Bible reading, and congregation activities. Jehovah can help you make wise choices.',goal:'Before leaving for lectures, take a few quiet minutes to pray and read a Bible passage.'},
+{title:'Ask Jehovah for wisdom',verse:'“If any one of you is lacking in wisdom, let him keep asking God.”',ref:'James 1:5',body:'When lectures, friendships, or decisions feel confusing, pray for wisdom. Then use Bible principles and good judgment before acting.',goal:'Before one important decision today, pause and ask: What Bible principle can guide me?'},
+{title:'Be strong and courageous',verse:'“Be courageous and strong.”',ref:'Joshua 1:9',body:'New environments can bring pressure. You do not have to face every challenge alone. Pray, make good choices, and seek help from trustworthy people.',goal:'Think of one challenge you may face today and decide how you will handle it in a way that pleases Jehovah.'},
+{title:'Choose good associations',verse:'“The one walking with the wise will become wise.”',ref:'Proverbs 13:20',body:'Be respectful and kind to all. Choose close friends who respect your faith and encourage you to do what is right.',goal:'Make time to contact a spiritually encouraging friend or family member.'},
+{title:'Keep doing what is good',verse:'“Let us not give up in doing what is fine.”',ref:'Galatians 6:9',body:'A busy week can make spiritual habits feel difficult. Keep your goals small and steady. A little sincere effort each day matters.',goal:'Set aside just 10–15 minutes for Bible reading or personal study today.'},
+{title:'Jehovah cares about you',verse:'“Throw all your anxiety on him, because he cares for you.”',ref:'1 Peter 5:7',body:'Schoolwork, money, and the future can weigh on your mind. Tell Jehovah how you feel, and take one practical step at a time.',goal:'Tell Jehovah in prayer one thing that is worrying you, then identify one practical step you can take.'},
+{title:'Be a good example',verse:'“Become an example to the faithful ones.”',ref:'1 Timothy 4:12',body:'Your conduct, speech, love, faith, and clean behavior can make a quiet but strong impression on people around you.',goal:'Look for one way to show kindness, honesty, or respect to someone on campus.'}
+];
+const tips=[
+{title:'Choose friends who help you grow',advice:'Be friendly to everyone, but choose close friends who respect your faith and help you make good decisions. You do not need to follow the crowd to belong.',scripture:'Proverbs 13:20'},
+{title:'Protect your time',advice:'Plan your lectures, assignments, rest, and spiritual routine. A simple schedule can help you avoid leaving everything until the last minute.',scripture:'Ephesians 5:15, 16'},
+{title:'Handle peer pressure respectfully',advice:'Decide your boundaries before a difficult situation comes. A calm, simple explanation is often enough; you do not need to argue or insult anyone.',scripture:'1 Peter 3:15'},
+{title:'Be honest in your studies',advice:'Do your own work, prepare well, and avoid cheating even if others say it is normal. A clean conscience is worth protecting.',scripture:'Proverbs 10:9'},
+{title:'Manage stress one step at a time',advice:'Break a big assignment into small tasks, get enough rest, and pray. If you feel overwhelmed, speak with a trusted person rather than carrying it alone.',scripture:'Philippians 4:6, 7'},
+{title:'Keep congregation meetings in your schedule',advice:'Plan ahead for meetings and congregation activities around your school responsibilities. Let your spiritual routine support you during busy weeks.',scripture:'Hebrews 10:24, 25'}
+];
+function dailyIndex(){const d=new Date();return Math.floor((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000))%encouragements.length}
+function renderToday(){const e=encouragements[dailyIndex()];$('todayDate').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'});$('encTitle').textContent=e.title;$('verseText').textContent=e.verse;$('verseRef').textContent=e.ref;$('encBody').textContent=e.body;$('dailyGoal').textContent=e.goal;$('goalStatus').textContent=(data.goalDate===todayKey())?'Goal completed today — well done!':''}
+function jump(id){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='progress')renderProgress()}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>jump(b.dataset.tab)));
+document.querySelectorAll('[data-habit]').forEach(c=>c.addEventListener('change',()=>{const k=todayKey();if(!data.habits||data.habitDate!==k){data.habits={};data.habitDate=k}data.habits[c.dataset.habit]=c.checked;persist();renderProgress()}));
+function currentHabits(){if(data.habitDate!==todayKey())return {};return data.habits||{}}
+function renderProgress(){const h=currentHabits();document.querySelectorAll('[data-habit]').forEach(c=>c.checked=!!h[c.dataset.habit]);const n=Object.values(h).filter(Boolean).length;const pct=Math.round(n/5*100);$('progressFill').style.width=pct+'%';$('progressLabel').textContent=pct+'% completed today ('+n+' of 5 habits)';$('todayProgress').textContent=n+' of 5 habits completed today.';$('streakText').textContent='Focus on building a steady routine, not on being perfect.'}
+function completeGoal(){data.goalDate=todayKey();persist();$('goalStatus').textContent='Goal completed today — well done! ❤️';}
+function resetToday(){data.habits={};data.habitDate=todayKey();persist();renderProgress()}
+function saveReminderSettings(){data.times={morning:$('morningTime').value,midday:$('middayTime').value,evening:$('eveningTime').value};persist();$('notificationStatus').textContent='Saved: '+data.times.morning+', '+data.times.midday+', '+data.times.evening+'. Keep the app open for in-app reminders; browser delivery can vary.';scheduleReminders()}
+async function enableNotifications(){if(!('Notification'in window)){$('notificationStatus').textContent='This browser does not support notifications. You can still use the saved routine times.';return}try{const p=await Notification.requestPermission();$('notificationStatus').textContent=p==='granted'?'Notifications allowed. Keep the app open for scheduled reminders; closing the browser may stop them.': 'Notifications were not allowed. You can change this in browser/site settings.';scheduleReminders()}catch(e){$('notificationStatus').textContent='Could not request notifications in this browser.'}}
+let timers=[];
+function scheduleReminders(){timers.forEach(clearTimeout);timers=[];if(!data.times)return;const msgs={morning:'Good morning! Pray, read the Daily Text, and ask Jehovah to guide your day.',midday:'Pause for a moment. Remember your spiritual goals and make a wise choice.',evening:'Time for Bible reading, personal study, and a peaceful prayer.'};const now=new Date();for(const k of Object.keys(msgs)){const [hh,mm]=(data.times[k]||'').split(':').map(Number);if(Number.isNaN(hh)||Number.isNaN(mm))continue;const when=new Date();when.setHours(hh,mm,0,0);if(when<=now)when.setDate(when.getDate()+1);timers.push(setTimeout(()=>{if('Notification'in window&&Notification.permission==='granted'){try{new Notification('My Walk With Jehovah',{body:msgs[k]})}catch(e){alert(msgs[k])}}else{alert(msgs[k])}scheduleReminders()},when-now))}}
+function saveStudy(){const reading=$('reading').value.trim(),lesson=$('lesson').value.trim();if(!reading&&!lesson){$('studyStatus').textContent='Add a Bible passage or one lesson first.';return}data.notes=data.notes||[];data.notes.unshift({date:new Date().toLocaleDateString(),reading,lesson});persist();$('studyStatus').textContent='Study note saved on this device.';$('reading').value='';$('lesson').value='';renderNotes()}
+function renderNotes(){const n=data.notes||[];$('notesList').innerHTML=n.length?n.slice(0,20).map(x=>'<div style="padding:10px 0;border-bottom:1px solid #e4e8e1"><strong>'+escapeHtml(x.reading||'Study reflection')+'</strong><div class="muted">'+escapeHtml(x.date)+'</div><div>'+escapeHtml(x.lesson||'')+'</div></div>').join(''):'Your saved notes will appear here on this device.'}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function nextTip(){const i=Number(data.tipIndex||0)%tips.length;const t=tips[i];$('studentTitle').textContent=t.title;$('studentAdvice').textContent=t.advice;$('studentScripture').textContent=t.scripture;data.tipIndex=i+1;persist()}
+function saveWeekly(){data.weekWin=$('weekWin').value;data.weekNext=$('weekNext').value;persist();$('weeklyStatus').textContent='Weekly reflection saved on this device.'}
+function load(){renderToday();if(data.times){$('morningTime').value=data.times.morning||'05:30';$('middayTime').value=data.times.midday||'12:30';$('eveningTime').value=data.times.evening||'20:00'}$('weekWin').value=data.weekWin||'';$('weekNext').value=data.weekNext||'';renderProgress();renderNotes();scheduleReminders()}
+if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+load();
+</script>
+</body></html>
